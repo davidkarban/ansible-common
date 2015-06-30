@@ -1,0 +1,12 @@
+---
+common_pkgs:
+  - htop
+  - strace
+  - mc
+  - links
+  - dstat
+  - tmux
+  - vim
+  - man-db
+  - lsof
+  - wget

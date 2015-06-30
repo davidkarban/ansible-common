@@ -1,0 +1,3 @@
+---
+# vars file for common
+homedir: "{% if ansible_user_id != 'root' %}/home/{{ ansible_user_id }}{% else %}/root{% endif %}"

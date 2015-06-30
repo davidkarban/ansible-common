@@ -1,0 +1,5 @@
+---
+# defaults file for common
+common: true
+common_timezone: "Europe/Prague"
+

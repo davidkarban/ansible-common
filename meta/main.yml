@@ -1,0 +1,33 @@
+---
+galaxy_info:
+  author: David Karban
+  description: Common role to setup frequently used utilities and some basic system configuration.
+  company: 
+  license: GPLv2
+  min_ansible_version: 1.2
+  platforms:
+  - name: EL
+    versions:
+    - 6
+    - 7
+  - name: Ubuntu
+    versions:
+    - precise
+    - quantal
+    - raring
+    - saucy
+    - trusty
+    - utopic
+    - vivid
+  - name: Debian
+    versions:
+    - jessie
+    - squeeze
+    - wheezy
+  categories:
+  - system
+dependencies:
+  - { role: davidkarban.repo_epel, when: ansible_os_family == "RedHat" }
+  - { role: davidkarban.repo_squeeze_lts, when: ansible_lsb.major_release|int == 6 and ansible_os_family == "Debian" }
+  - davidkarban.logrotate
+
