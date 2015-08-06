@@ -17,21 +17,21 @@
   when: ansible_os_family == 'Debian' and ansible_lsb.major_release|int > 5
 
 # mc config
-#- name: Check if mc config is already available
-#  tags: common
-#  stat: path="{{ homedir }}/.config/mc/ini"
-#  always_run: true
-#  register: mc_config
+- name: Check if mc config is already available
+  tags: common
+  stat: path="{{ homedir }}/.config/mc/ini"
+  always_run: true
+  register: mc_config
 
-#- name: Ensure config directory for mc do exists
-#  tags: common
-#  file: path="{{ homedir }}/.config/mc" state=directory
-#  when: not mc_config.stat.exists
+- name: Ensure config directory for mc do exists
+  tags: common
+  file: path="{{ homedir }}/.config/mc" state=directory
+  when: not mc_config.stat.exists
 
-#- name: Ensure Midnight Commander has Lynx like motion active (on old mc)
-#  tags: common
-#  copy: src=mc.ini dest="{{ homedir }}/.config/mc/ini"
-#  when: (mc_config is defined and not mc_config.stat.exists)
+- name: Ensure Midnight Commander has Lynx like motion active (on old mc)
+  tags: common
+  copy: src=mc.ini dest="{{ homedir }}/.config/mc/ini"
+  when: (mc_config is defined and not mc_config.stat.exists)
 
 - name: Ensure timezone is set
   tags: common
