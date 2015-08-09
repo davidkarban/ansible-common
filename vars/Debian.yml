@@ -11,4 +11,6 @@ common_pkgs:
   - lsof
   - wget
   - debian-goodies
+  - sudo
 #  - logtail
+

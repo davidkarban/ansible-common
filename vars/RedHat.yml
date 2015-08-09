@@ -10,5 +10,6 @@ common_pkgs:
   - man
   - lsof
   - wget
+  - sudo
 #  - fetchlog
 
