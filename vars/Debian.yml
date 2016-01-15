@@ -13,4 +13,8 @@ common_pkgs:
   - debian-goodies
   - sudo
 #  - logtail
+# apt https support
+  - apt-transport-https
+  - ca-certificates
+  - python-pycurl
 
