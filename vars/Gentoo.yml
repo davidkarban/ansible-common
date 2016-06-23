@@ -10,3 +10,4 @@ common_pkgs:
   - man-db
   - lsof
   - wget
+  - pwgen
