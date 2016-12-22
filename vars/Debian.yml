@@ -17,4 +17,4 @@ common_pkgs:
   - apt-transport-https
   - ca-certificates
   - python-pycurl
-
+  - pwgen
