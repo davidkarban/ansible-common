@@ -16,7 +16,7 @@
 # mc config
 - name: Check if mc config is already available
   stat: path="{{ homedir }}/.config/mc/ini"
-  always_run: true
+  check_mode: false
   register: mc_config
 
 - name: Ensure config directory for mc do exists
