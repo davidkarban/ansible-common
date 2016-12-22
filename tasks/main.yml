@@ -1,43 +1,35 @@
 ---
 # tasks file for common
 - name: Load the OS specific variables
-  tags: common
   include_vars: "{{ ansible_os_family }}.yml"
 
 - name: Install the common packages in Redhat derivates
-  tags: common
   yum: name={{ item }} state=present
-  with_items: common_pkgs
+  with_items: '{{ common_pkgs }}'
   when: ansible_os_family == 'RedHat'
 
 - name: Install the common packages in Debian derivates
-  tags: common
   apt: name={{ item }} state=present update_cache=yes cache_valid_time=600
-  with_items: common_pkgs
+  with_items: '{{ common_pkgs }}'
   when: ansible_os_family == 'Debian' and ansible_lsb.major_release|int > 5
 
 # mc config
 - name: Check if mc config is already available
-  tags: common
   stat: path="{{ homedir }}/.config/mc/ini"
   always_run: true
   register: mc_config
 
 - name: Ensure config directory for mc do exists
-  tags: common
   file: path="{{ homedir }}/.config/mc" state=directory
   when: not mc_config.stat.exists
 
 - name: Ensure Midnight Commander has Lynx like motion active (on old mc)
-  tags: common
   copy: src=mc.ini dest="{{ homedir }}/.config/mc/ini"
   when: (mc_config is defined and not mc_config.stat.exists)
 
 - name: Ensure timezone is set
-  tags: common
   file: path=/etc/localtime state=link src="/usr/share/zoneinfo/{{ common_timezone }}" force=true
 
 - name: Ensure /root/tmp is available
-  tags: common
   file: path=/root/tmp state=directory owner=root group=root mode=0700
 
