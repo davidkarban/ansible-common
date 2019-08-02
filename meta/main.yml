@@ -26,7 +26,5 @@ galaxy_info:
     - wheezy
   categories:
   - system
-dependencies:
-  - { role: davidkarban.repo_epel, when: ansible_os_family == "RedHat" }
-  - davidkarban.logrotate
+dependencies: []
 
