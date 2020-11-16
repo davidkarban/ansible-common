@@ -3,7 +3,7 @@
 - name: Load the OS specific variables
   include_vars: "{{ ansible_os_family }}.yml"
 
-- name: Install the common packages in Redhat derivates
+- name: Install common packages
   package: 
     name: '{{ common_pkgs }}'
     state: present
