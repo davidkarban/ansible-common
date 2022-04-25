@@ -2,9 +2,7 @@
 common_pkgs:
   - htop
   - strace
-  - mc
-  - links
-  - dstat
+    #  - dstat
   - tmux
   - vim
   - man-db
@@ -16,6 +14,6 @@ common_pkgs:
 # apt https support
   - apt-transport-https
   - ca-certificates
-  - python-pycurl
-  - pwgen
+    #  - python-pycurl
+    #  - pwgen
   - netcat

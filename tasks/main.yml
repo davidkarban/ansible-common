@@ -8,20 +8,6 @@
     name: '{{ common_pkgs }}'
     state: present
 
-# mc config
-- name: Check if mc config is already available
-  stat: path="{{ homedir }}/.config/mc/ini"
-  check_mode: false
-  register: mc_config
-
-- name: Ensure config directory for mc do exists
-  file: path="{{ homedir }}/.config/mc" state=directory
-  when: not mc_config.stat.exists
-
-- name: Ensure Midnight Commander has Lynx like motion active (on old mc)
-  copy: src=mc.ini dest="{{ homedir }}/.config/mc/ini"
-  when: (mc_config is defined and not mc_config.stat.exists)
-
 - name: Ensure timezone is set
   file: path=/etc/localtime state=link src="/usr/share/zoneinfo/{{ common_timezone }}" force=true
 

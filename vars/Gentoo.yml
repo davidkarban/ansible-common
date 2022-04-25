@@ -2,7 +2,6 @@
 common_pkgs:
   - htop
   - strace
-  - mc
   - links
   - dstat
   - tmux
