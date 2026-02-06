@@ -16,4 +16,4 @@ common_pkgs:
   - ca-certificates
     #  - python-pycurl
     #  - pwgen
-  - netcat
+    #  - netcat
